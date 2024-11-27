@@ -1,12 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { User } from '../entities/user.entity';
-import { IUserRepository } from './interfaces/IUserRepository';
+import { User } from '../../entities/user.entity';
+import { IUserRepository } from '../interfaces/IUserRepository';
 
 @Injectable()
-export class UserRepository implements IUserRepository {
+export class UserPostgresRepository implements IUserRepository {
     constructor(
-        @Inject('USER_REPOSITORY')
         private userRepository: Repository<User>,
       ) {}
     

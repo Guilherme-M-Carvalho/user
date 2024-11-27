@@ -6,7 +6,7 @@ const AppDataSource = new DataSource({
     port: Number(process.env.DB_PORT) || 5432,
     username: process.env.DB_USERNAME || 'postgres',
     password: process.env.DB_PASSWORD || 'root',
-    database: process.env.DB_NAME || 'db',
+    database: process.env.DB_NAME || 'postgres',
     migrations: [
         __dirname + '/../migration/*{.ts,.js}',
     ],
