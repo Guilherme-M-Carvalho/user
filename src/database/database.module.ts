@@ -1,10 +1,13 @@
 
 import { Module } from '@nestjs/common';
-import { databaseProviders } from './database.providers';
-import AppDataSource from './datasource';
+import { ConnectionService } from './connection.service';
+import { DatabaseService } from './database.service';
+import { HttpModule, HttpService } from '@nestjs/axios';
+import { RedisService } from 'src/config/redis';
 
 @Module({
-    providers: [...databaseProviders],
-    exports: [...databaseProviders],
+    imports: [HttpModule],
+    providers: [DatabaseService, ConnectionService, RedisService],
+    exports: [DatabaseService, ConnectionService],
 })
 export class DatabaseModule { }
